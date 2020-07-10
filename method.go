@@ -89,7 +89,7 @@ func NewSignMethod(algorithm Algorithm, privateKey []byte) (SignMethod, error) {
 	case HMAC:
 		return NewSignMethodHMAC(h, privateKey), nil
 	case ECDSA:
-		return NewSignMethodECDSA(h, privateKey)
+		return NewSignMethodECDSA(h, privateKey, nil)
 	case RSA:
 		return NewSignMethodRSA(h, privateKey)
 	default:

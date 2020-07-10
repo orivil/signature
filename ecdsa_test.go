@@ -17,7 +17,7 @@ import (
 var ecdsaKey = genECDSAPrivateKey(elliptic.P256())
 
 func TestNewSignMethodECDSA(t *testing.T) {
-	es, err := signature.NewSignMethodECDSA(crypto.SHA256, ecdsaKey)
+	es, err := signature.NewSignMethodECDSA(crypto.SHA256, ecdsaKey, nil)
 	if err != nil {
 		t.Fatal(err)
 	}
@@ -26,7 +26,7 @@ func TestNewSignMethodECDSA(t *testing.T) {
 
 // 31502 ns/op
 func BenchmarkSignMethodECDSA_Sign(b *testing.B) {
-	es, err := signature.NewSignMethodECDSA(crypto.SHA256, ecdsaKey)
+	es, err := signature.NewSignMethodECDSA(crypto.SHA256, ecdsaKey, nil)
 	if err != nil {
 		b.Fatal(err)
 	}
@@ -36,7 +36,7 @@ func BenchmarkSignMethodECDSA_Sign(b *testing.B) {
 
 // 94467 ns/op
 func BenchmarkSignMethodECDSA_Verify(b *testing.B) {
-	es, err := signature.NewSignMethodECDSA(crypto.SHA256, ecdsaKey)
+	es, err := signature.NewSignMethodECDSA(crypto.SHA256, ecdsaKey, nil)
 	if err != nil {
 		b.Fatal(err)
 	}

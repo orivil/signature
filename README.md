@@ -4,14 +4,14 @@ Supported algorithms: `HS256, HS384, HS512, ES256, ES384, ES512, RS256, RS384, R
 
 # Usage
 ```go
-package signature_test
+package main
 
 import (
 	"fmt"
 	"github.com/orivil/signature"
 )
 
-func ExampleNewSignMethod() {
+func main() {
 	var privateKey = []byte("secret key")
 
 	// Supported algorithms: HS256, HS384, HS512, ES256, ES384, ES512, RS256, RS384, RS512
